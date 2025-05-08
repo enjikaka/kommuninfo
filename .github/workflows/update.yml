@@ -1,0 +1,27 @@
+name: Uppdatera kommunprotokoll
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+      - run: deno task update
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      - run: deno task build
+      - name: Commit
+        run: |
+          git config user.name "KommunBot"
+          git config user.email "bot@example.com"
+          git add _data/
+          git commit -m "Sammanfattningar uppdaterade" || echo "Inget nytt"
+          git push

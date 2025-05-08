@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "@b-fuze/deno-dom": "jsr:@b-fuze/deno-dom@^0.1.49",
+    "@pdf/pdftext": "jsr:@pdf/pdftext@1.3.2"
+  }
+}
