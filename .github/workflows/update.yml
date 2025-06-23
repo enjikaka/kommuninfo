@@ -2,7 +2,7 @@ name: Uppdatera kommunprotokoll
 
 on:
   schedule:
-    - cron: '0 3 * * *'
+    - cron: "0 3 * * *"
   workflow_dispatch:
 
 jobs:
@@ -13,7 +13,7 @@ jobs:
       - name: Setup Deno
         uses: denoland/setup-deno@v1
         with:
-          deno-version: v1.x
+          deno-version: v2.3.6
       - run: deno task update
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
