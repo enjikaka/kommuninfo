@@ -7,6 +7,8 @@ const kommun = new Årjäng();
 
 const protocols = await kommun.getProtocols(2025);
 
+console.log(protocols);
+/*
 const response = await fetch(Object.entries(protocols)[0][1]);
 const pdfBuffer = await response.arrayBuffer();
 const page: { [pageno: number]: string } = await pdfText(
@@ -21,3 +23,4 @@ Deno.writeTextFileSync(
   `kommunfullmäktige/${kommun.code}/${Object.entries(protocols)[0][0]}.md`,
   summary,
 );
+*/

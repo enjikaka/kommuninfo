@@ -13,11 +13,10 @@ jobs:
       - name: Setup Deno
         uses: denoland/setup-deno@v1
         with:
-          deno-version: v2.3.6
-      - run: deno task update
+          deno-version: v2.4.3
+      - run: deno task fetch
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-      - run: deno task build
       - name: Commit
         run: |
           git config user.name "KommunBot"
